@@ -1,0 +1,18 @@
+
+
+<div class="sidebar">
+    <ul >
+        <div class="example" [routerLink]="['welcome']" [routerLinkActive]="['active-tab']">
+            <li><a class="hover hover-1"  ><i></i >Welcome Page</a><span class="welcome-icon"></span></li>
+        </div>
+        <div *ngIf="isLoggedIn">
+            <div class="example" [routerLink]="['search']" [routerLinkActive]="['active-tab']">
+                <li><a class="hover hover-1 " ><i></i>Search Books</a><span class="book-icon"></span></li>
+            </div>
+            <div class="example" [routerLink]="['wishList']" [routerLinkActive]="['active-tab']">
+                <li><a class="hover hover-1" ><i></i>Wish list</a><span class="wishlist-icon"></span></li>
+            </div>
+        </div>
+
+    </ul>
+</div>

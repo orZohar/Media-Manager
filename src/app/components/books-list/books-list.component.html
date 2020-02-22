@@ -1,0 +1,11 @@
+
+<div class="booklist-wrapper">
+    <div class="parent">
+        <div [ngClass]="removeHoverFromBooks === true ? 'delete-button-container' : 'book-container'" 
+        *ngFor="let book of booksList  | paginate: { itemsPerPage: 8, currentPage: paginationPage }; trackBy: trackByBooksListFunction " @enterAnimation>
+            <span *ngIf="addDeleteButton" class="delete-button" (click)="deleteBook(book.id)"></span>
+            <book class="child" [bookData]="book" (click)="getBookDetails(book.id)"></book>
+        </div>
+    </div>
+    <pagination-controls class="pagination" *ngIf="booksList.length > 0" (pageChange)="paginationPage = $event"></pagination-controls>
+</div>

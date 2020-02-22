@@ -1,0 +1,70 @@
+
+@font-face {
+    font-family: JosefinSans;
+    src: url(src/assets/fonts/OpenSans/OpenSans-Bold.ttf) format("opentype");
+  }
+  @font-face {
+    font-family: JosefinSans-light;
+    src: url(src/assets/fonts/OpenSans/OpenSans-Light.ttf) format("opentype");
+  }
+
+.book-container{
+  width:20vw;
+}
+.book{
+    position: relative;
+    bottom:10vh;
+    display: block;
+    flex-direction: row;
+    cursor: pointer;
+    overflow: hidden;
+    font-size:14px;
+    width:6.6vw;
+    max-height:22.5vh;
+    padding:1vh;
+    flex-grow: 1;
+    border: 1px solid transparent;
+    font-family: JosefinSans-light;
+    padding-bottom:2vh;
+    margin:3vh;
+    box-shadow: 0 0 20px #aaa;
+    border-radius: 10px;
+    box-shadow: 0 1.5em 2em -1em #999;
+    background-color: white;
+}
+
+.book-img{
+  position:relative;
+  padding-bottom:1vh;
+  max-height:17vh;
+  width:7.7vw;
+  right:0.6vw;
+  bottom:1vh;
+}
+
+.book-title{
+  font-size:13px;
+   font-family:  JosefinSans;
+   width:6.9vw;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
+
+.book-authors{
+  font-size:12px;
+  width:6vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  
+}
+
+.book-date{
+  font-size:12px;
+}
+

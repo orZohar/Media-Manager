@@ -1,0 +1,56 @@
+.dialog-container { 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: center; 
+
+    &.h1{
+        margin-bottom: 20px; 
+    }
+    &.p{
+        margin-top: 0px; 
+    }
+    &.button {
+        margin:auto; 
+    }
+}
+
+.book-details{
+    overflow:auto;
+    height:50vh;
+}
+
+.dialog-button{
+    position: relative;
+    margin-right:10px;
+    top: 5vh;
+}
+
+.no-btn:hover { 
+    background-color: rgba(179, 49, 49 , 0.8);
+}
+
+.yes-btn:hover { 
+    background-color: rgba(49, 179, 66 , 0.8);
+}
+
+// scroller styling
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+//////////////////////

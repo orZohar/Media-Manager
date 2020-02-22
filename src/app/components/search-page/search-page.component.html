@@ -1,0 +1,8 @@
+<div class="welcome-message">
+    <div>Hello {{welcomeUserMsg}}, welcome to Search page!</div>
+    <!-- search-bar -->
+    <search-bar (searchTextEmitter)="updateSearchText($event)"></search-bar>
+</div>
+
+<!-- books search result -->
+<books-list [searchTextObservable]="searchTextObservable"></books-list>

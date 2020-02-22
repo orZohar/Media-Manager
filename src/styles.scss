@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+// regular style toast 
+@import '~ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+@font-face {
+    font-family: OpenSans;
+    src: url(src/assets//fonts/openSans/OpenSans-Light.ttf);
+  }
+@font-face {
+    font-family: josefin-light;
+    src: url(src/assets//fonts/Josefin_Sans/JosefinSans-LightItalic.ttf);
+  }
+@font-face {
+    font-family: open-sans-italic;
+    src: url(src/assets/fonts/openSans/OpenSans-Italic.ttf) format("opentype");
+  }
+
+body {
+   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-y: hidden; overflow-x: hidden; background-color: #5d83af;
+}
+
+html, body { height: 100%; }

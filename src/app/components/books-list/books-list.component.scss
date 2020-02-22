@@ -1,0 +1,63 @@
+
+.booklist-wrapper{
+    position: relative;
+    left:22vw;
+    width: calc(100% - 16vw);
+    font-family: openSans, serif;
+    bottom:5.5vh;
+}
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom:2vh;
+  }
+  
+  .child {
+    flex: 0 0 33.333333%;
+    flex-direction: row;
+    // margin: 5px;
+    // height: 100px;
+}
+.pagination{
+    position: fixed;
+    right: 37.5vw;
+    bottom:2vh;
+    font-family: open-sans-italic;
+    color:black;
+}
+ 
+
+  .book-container  {
+    transform: scale(1);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .book-container:hover  {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+
+  .delete-button {
+    background-image: url('/assets/images/delete-button-pngrepo-com.png');
+    display:inline-block;
+    height:2.5vh;
+    width:2vh;
+    padding-right:2px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 9vw;
+    bottom:10vh;
+    transform: rotate(0deg);
+    transition: transform 0.4s linear;
+  }
+  
+  .delete-button:hover,
+  .delete-button:focus {
+    transform: rotate(10deg);
+    transition: transform 0.4s linear;
+    cursor:pointer;
+  }
+  .delete-button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}

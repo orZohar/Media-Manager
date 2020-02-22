@@ -1,0 +1,38 @@
+.header-wrapper { 
+    position: fixed;
+    top: 0vh; // header should start at the top of the screen 
+    height: 5vh;
+    width:100vw;
+    border-radius: 1px;
+    background-color:#282a34;
+    z-index: 999;
+}
+.app-title{ 
+    position: relative; 
+    bottom:1.2vh;
+    left:1vh;
+    color:white;
+    cursor: pointer;
+}
+.cart-icon{
+    background-image: url('/assets/images/cart-icon.png');
+    display:inline-block;
+    height:4vh;
+    width:2.5vw;
+    padding-right:2px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 90.5vw;
+    bottom: 6.7vh;
+    transform: rotate(0deg);
+    transition: transform 0.4s linear;
+  } 
+
+  .books-count{
+      position: relative;
+      color:white;
+      left:2.5vw;
+  }
+  :focus {
+    outline: 0 !important;
+  }

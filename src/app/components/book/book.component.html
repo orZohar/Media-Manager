@@ -1,0 +1,12 @@
+<div class="book-container">
+  <div class="book">
+    <div>
+      <img class="book-img" *ngIf="bookData.volumeInfo.imageLinks" src="{{bookData.volumeInfo.imageLinks.thumbnail}}" />
+    </div>
+    <div style="position:relative; bottom:1vh">
+      <div class="book-title">{{bookData.volumeInfo.title}}</div>
+      <div class="book-authors small-font">{{bookData.volumeInfo.authors}}</div>
+      <div class="book-date small-font">{{bookData.volumeInfo.publishedDate}}</div>
+    </div>
+  </div>
+</div>
