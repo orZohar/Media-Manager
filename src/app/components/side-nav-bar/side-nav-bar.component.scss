@@ -82,38 +82,38 @@ $animate: all 0.2s ease-in-out;
   .book-icon{
     background-image: url('/assets/images/book-icon.png');
     display:inline-block;
-    height:2.5vh;
-    width:2vw;
+    height:1.8vh;
+    width:1.4vw;
     padding-right:2px;
     background-size: 100% 100%;
     position: relative;
-    left: 6.2vw;
-    top: 1vh;
+    left: 6.5vw;
+    top: 0.4vh;
     transform: rotate(0deg);
     transition: transform 0.4s linear;
 } 
 .wishlist-icon{
   background-image: url('/assets/images/wishlist.png');
   display:inline-block;
-  height:2vh;
-  width:1.8vw;
+  height:1.8vh;
+  width:1.6vw;
   padding-right:2px;
   background-size: 100% 100%;
   position: relative;
-  left: 8.3vw;
-  top: 1vh;
+  left: 8.4vw;
+  top: 0.3vh;
   transform: rotate(0deg);
   transition: transform 0.4s linear;
 } 
 .welcome-icon{
   background-image: url('/assets/images/welcome-icon.png');
   display:inline-block;
-  height:2.4vh;
-  width:2.6vw;
+  height:2vh;
+  width:2vw;
   padding-right:2px;
   background-size: 100% 100%;
   position: relative;
-  left: 5.3vw;
+  left: 5.6vw;
   top: 0.5vh;
   transform: rotate(0deg);
   transition: transform 0.4s linear;
