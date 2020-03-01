@@ -2,9 +2,11 @@
   <div class="login-triangle"></div>
   <h2 class="login-header">Welcome to BookSearch!</h2>
   <form #bookForm="ngForm" class="login-container" autocomplete="off" novalidate (ngSubmit)="goToSearchPage()">
-    <p><input #refUsername class="username" type="text" #user="ngModel" [(ngModel)]="username" name="user" placeholder="Please enter your username"
+      <label>
+    <p><input #refUsername id="" class="username" type="text" #user="ngModel" [(ngModel)]="username" name="user" placeholder="Please enter your username"
         maxlength="20" required></p>
     <validation-messages [form]="user" [elementsRefs]="[refUsername]"></validation-messages>
     <input class="submit-button" type="submit" [form]="bookForm" cnFormSubmit value="Submit" />
+    </label>
   </form>
 </div>

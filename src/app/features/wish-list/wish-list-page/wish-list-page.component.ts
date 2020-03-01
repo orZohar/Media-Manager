@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleBooksService } from '../../services/google-books.service';
+import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
   selector: 'app-wish-list-page',

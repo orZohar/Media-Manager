@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchPageComponent } from './components/search-page/search-page.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
-import { WishListPageComponent } from './components/wish-list-page/wish-list-page.component';
 import { IsPermittedGuard } from './guards/is-permitted.guard';
-
 
 const routes: Routes = [
   {
@@ -13,13 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'search',
-    component: SearchPageComponent,
-    canActivate: [IsPermittedGuard] 
+    canActivate: [IsPermittedGuard],
+    loadChildren: './features/search/search.module#SearchModule'
   },
   {
     path: 'wishList',
-    component: WishListPageComponent,
-    canActivate: [IsPermittedGuard] 
+    canActivate: [IsPermittedGuard],
+    loadChildren: './features/wish-list/wish-list.module#WishListModule'
   },
 
   { 
@@ -33,3 +30,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+// const routes: Routes = [
+//   { path: '', component: HomeComponent},  // load home page first
+//   { path: 'auth', loadChildren: 'src/app/auth/auth.module#AuthModule' }  // lazy load login module
+// ];

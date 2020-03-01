@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleBooksService } from '../../services/google-books.service';
 import { Subscription, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
   selector: 'app-search-page',
