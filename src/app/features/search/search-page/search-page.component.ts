@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
   selector: 'app-search-page',
@@ -16,7 +15,7 @@ export class SearchPageComponent implements OnInit {
   searchTextObservable = new Subject<string>(); // obs for send to child component to listen for ngModel changing
   subscriptions: Subscription = new Subscription();
   
-  constructor(private googleBooksService: GoogleBooksService) {
+  constructor() {
     // before sending the searchtext to booklist component debounce it
     this.subscriptions.add(this.modelChanged
     .pipe(
@@ -27,7 +26,8 @@ export class SearchPageComponent implements OnInit {
    };
 
   ngOnInit() {
-    this.welcomeUserMsg = this.googleBooksService.getUserName();
+    // get username from session storage
+    this.welcomeUserMsg  = JSON.parse(sessionStorage.getItem('user'));
   }
 
   updateSearchText(event) {

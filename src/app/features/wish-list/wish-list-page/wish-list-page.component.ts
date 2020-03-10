@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
   selector: 'app-wish-list-page',
@@ -8,8 +7,8 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
 })
 export class WishListPageComponent implements OnInit {
   shoppingCart: Object[] = [];
-  constructor(private googleBooksService : GoogleBooksService) { }
+  constructor() { }
   ngOnInit() {
-    this.shoppingCart = this.googleBooksService.getShoppingCart();
+    this.shoppingCart = JSON.parse(localStorage.getItem("cart") || "[]"); 
   }
 }

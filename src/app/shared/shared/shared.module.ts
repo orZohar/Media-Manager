@@ -8,7 +8,7 @@ import { FormSubmitDirective } from 'src/app/directives/form-submit.directive';
 import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dialog/confirmation-dialog.component';
 import { SearchBarComponent } from 'src/app/components/search-bar/search-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { SearchModule } from 'src/app/features/search/search.module';
@@ -34,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 1000,
       positionClass: 'toast-bottom-right',
@@ -42,6 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   exports: [
     CommonModule,
+    ReactiveFormsModule,
     BooksListComponent,
     BookComponent,
     BookDetailsDialogComponent,

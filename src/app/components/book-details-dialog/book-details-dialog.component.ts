@@ -23,7 +23,9 @@ export class BookDetailsDialogComponent implements OnInit {
     this.bookData = this.data.book;
   }
   addToCart() {
-    this.googleBooksService.shoppingCart.push(this.bookData);
+    // add wishlist to local storage
+    this.googleBooksService.updateWishList(this.bookData);
+
     this.toastrService.success("Item added to Wishlist");
     // broadcast to header to raise items count 
     this.subscriptions.add(this.eventService.BroadcastEvent("CHANGES_CART_COUNT", true));

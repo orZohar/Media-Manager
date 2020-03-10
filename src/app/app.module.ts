@@ -11,8 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { IsPermittedGuard } from './guards/is-permitted.guard';
 import { ToastrModule } from 'ngx-toastr';
-import { SearchModule } from './features/search/search.module';
-import { WishListModule } from './features/wish-list/wish-list.module';
 import { SharedModule } from './shared/shared/shared.module';
 
 @NgModule({
@@ -30,14 +28,7 @@ import { SharedModule } from './shared/shared/shared.module';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    SearchModule,
     SharedModule,
-    WishListModule,
-    ToastrModule.forRoot({
-      timeOut: 1000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true
-    }) // ToastrModule added
   ],
   providers: [IsPermittedGuard],
   bootstrap: [AppComponent]

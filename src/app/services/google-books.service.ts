@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
-import { throwError, EMPTY } from 'rxjs';
+import { throwError, EMPTY, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleBooksService {
-  isLoggedIn: boolean;  
-  userName : string;
-  shoppingCart: Object[] = [];
+  isLoggedIn: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -29,21 +27,31 @@ export class GoogleBooksService {
         }
       });
   }
- 
-  getUserName(){  
-    return this.userName;
-  }
-  setUserName(name){  
-    this.userName = name;
-  }
 
-  isUserLoggedIn(){ 
+  isUserLoggedIn() {
     return this.isLoggedIn;
   }
-  setLogin(loggedIn){
-    this.isLoggedIn = loggedIn;
+
+  login(request) {
+    // save user added in session
+    sessionStorage.setItem('user', JSON.stringify(request.username));
+    // respond 200 OK
+    return of(new HttpResponse({ status: 200 }));
   }
-  getShoppingCart(){ 
-      return this.shoppingCart;
+
+  updateWishList(book) {
+    let cart = [];
+    // get current wish list from local storage
+    if (localStorage.getItem('cart')) {
+      cart = JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    // push new book 
+    cart.push(book);
+    // update local storage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // respond 200 OK
+    return of(new HttpResponse({ status: 200 }));
   }
 }
