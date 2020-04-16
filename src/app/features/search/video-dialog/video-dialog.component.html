@@ -1,0 +1,9 @@
+<div class="video" style="overflow-x: hidden">
+    <iframe width="400" height="320" [src]=getEmbedUrl()></iframe>
+    <!-- confirmations buttons -->
+</div>
+<div class="buttons">
+    <button *ngIf="!disableAddButton" class="dialog-button yes-btn" (click)="addToCart()" mat-raised-button color="primary" [mat-dialog-close]="true">Add
+        to list</button>
+    <button class="dialog-button no-btn" mat-raised-button [mat-dialog-close]="false">Close</button>
+</div>

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('google-books-app app is running!');
+    expect(page.getTitleText()).toEqual('media-manager app is running!');
   });
 
   afterEach(async () => {

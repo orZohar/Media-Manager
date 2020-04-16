@@ -1,0 +1,27 @@
+<!-- table titles -->
+<div class="datatable-wrapper" *ngIf="displayData && displayData.length > 0">
+    <div class="table-headers">
+        <div *ngFor="let header of headers" class="table-cell">
+            <span (click)="sort(header)" (click)="selected=!selected;sort(header)">
+                <span (click)="sort(header)">
+                    {{header.displayName}}<i [ngClass]="{'arrow-down': selected, 'arrow-up': !selected}"></i>
+                </span>
+            </span>
+        </div>
+    </div>
+    <!-- table filters -->
+    <div class="table-filters">
+        <div *ngFor="let item of inputsArray; let i = index" class="table-cell">
+            <input class="Rtable-input"  pInputText [(ngModel)]="inputsArray[i].value" type="text" (ngModelChange)="filter(inputsArray)" />
+        </div>
+    </div>
+
+    <!-- table body  -->
+    <div class="Rtable-body" >
+        <div *ngFor="let entity of displayData | paginate: { itemsPerPage: 10, currentPage: paginationPage }; let i=index" >
+            <media-row [entity]="entity" [headers]="headers" [rowNumber]="i"></media-row>
+        </div>
+    </div>
+</div>
+
+<pagination-controls class="pagination" *ngIf="displayData.length > 0" (pageChange)="paginationPage = $event"></pagination-controls>

@@ -1,0 +1,207 @@
+
+$animate: all 0.2s ease-in-out;
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.sidebar{
+  position: fixed;
+  left: 0; // place side bar in positions 0
+  top: 6vh;// top of side is 6vh to leave room for side bar (header height is exactly 6vh)
+  width: 13vw; // side bar width 
+  height: 100%;
+  background: #212529;
+  // -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%,#092756 100%);
+  padding: 30px 0px;
+  margin-top:0;
+}
+
+// side bar tabs 
+.sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+  // side bar text
+.sidebar ul li a{
+  color: #bdb8d7;
+}
+.sidebar ul li:hover a{
+  color: #fff;
+}
+
+/** tabs hover **/
+  .example {
+    opacity: 0.95;
+
+    .hover {
+      font-size: 0.85vw;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      transition: $animate;
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        width: 0px;
+        height: 5px;
+        margin: 5px 0 0;
+        transition: $animate;
+        transition-duration: 0.5s;
+        opacity: 0;
+        background-color: #7FDBFF;
+      }
+      &.hover-1 {
+        &:before,
+        &:after {
+          left: 0;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .hover {
+        &:before,
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .active-tab{
+    color:white;
+  }
+
+  .videos-icon{
+    margin-right:7px;
+    background-image: url('/assets/images/videos-icon.png');
+    display:inline-block;
+    height:1.9vh;
+    width:1.1vw;
+    top:0.2vh;
+    padding-right:2px;
+    background-size: 100% 100%;
+    position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
+} 
+.book-icon{
+  margin-right:7px;
+  background-image: url('/assets/images/book-icon.png');
+  display:inline-block;
+  height:1.9vh;
+  width:1.1vw;
+  top:0.2vh;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+.arrow-right{
+  background-image: url('/assets/images/arrow-right.png');
+  display:inline-block;
+  height:1.1vh;
+  width:0.5vw;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  left: 6.5vw;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+.arrow-down{
+  background-image: url('/assets/images/arrow-right.png');
+  display:inline-block;
+  height:1.1vh;
+  width:0.5vw;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  left: 6.5vw;
+  transform: rotate(90deg);
+  transition: transform 0.2s linear;
+} 
+
+.wishlist-icon{
+  background-image: url('/assets/images/wishlist.png');
+  display:inline-block;
+  height:1.8vh;
+  width:1.6vw;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  left: 8.4vw;
+  top: 0.3vh;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+.welcome-icon{
+  margin-right:7px;
+  background-image: url('/assets/images/welcome-icon.png');
+  display:inline-block;
+  height:1.9vh;
+  width:1.1vw;
+  top:0.2vh;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+
+.statistics-icon{
+  margin-right:7px;
+  background-image: url('/assets/images/statistics-icon.png');
+  display:inline-block;
+  height:1.9vh;
+  width:1.1vw;
+  top:0.2vh;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+
+.search-sidenav{
+  margin-right:7px;
+  background-image: url('/assets/images/search-sidenav.png');
+  display:inline-block;
+  height:1.9vh;
+  width:1.1vw;
+  top:0.2vh;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+} 
+:focus {
+  outline: 0 !important;
+}
+
+.box {
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: ease-in-out 200ms max-height;
+}
+
+.box.opened {
+  max-height: 12vh;
+  transition: ease-in-out 200ms max-height;
+}
+
+.arrow-position{
+  position: relative;
+  left: 6.1vw;
+}

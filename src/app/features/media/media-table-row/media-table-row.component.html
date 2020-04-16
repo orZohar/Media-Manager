@@ -1,0 +1,5 @@
+<div class="Rtable-row"  [ngClass]="{'row-color1': (rowNumber % 2) === 0, 'row-color2': (rowNumber % 2) !== 0}">
+    <div *ngFor=" let field of row; let i=index" class="Rtable-cell">
+        <span style="font-family:sans-serif">{{ field }}</span>
+    </div>
+</div>

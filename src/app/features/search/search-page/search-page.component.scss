@@ -1,8 +1,31 @@
-.welcome-message{
+
+.search-place{
+  margin: 150px auto;
   position: relative;
-  font-family: josefin-light;
-  font-size: 30px;
-  width: 40vw;
-  left: 17vw;
-  top: 8vh;
+  width: 14vw;
+  left: 16.5vw;
+  bottom: 3.8vh;
 }
+.dropdown{
+  position:relative;
+  left:15vw;
+  bottom:4vh;
+}
+.bookslist-wrapper{
+  position: relative;
+  left:20vw;
+  bottom:5.5vh;
+}
+.search-icon{
+  background-image: url('/assets/images/search-icon.png');
+  display:inline-block;
+  height:3vh;
+  width:1.4vw;
+  padding-right:2px;
+  background-size: 100% 100%;
+  position: relative;
+  left: 14.8vw;
+  bottom: 3vh;
+  transform: rotate(0deg);
+  transition: transform 0.4s linear;
+} 

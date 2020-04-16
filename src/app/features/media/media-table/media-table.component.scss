@@ -1,0 +1,103 @@
+.datatable-wrapper {
+    position: relative;
+    left:19vw;
+    width: calc(100% - 26vw);
+    top:7.5vh;
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+}
+
+.table-headers { 
+        display: flex;
+        flex-direction: row; 
+        width:100%;
+        font-weight: bold;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        font-family: sans-serif;
+        font-size:13.5px;
+
+}
+
+
+.table-filters { 
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+
+}
+
+.table-cell { 
+    // position: relative;
+    width: 100%;
+    // text-align: center;
+    padding-left:0.5vw;
+    font-size:13.5px;
+    list-style: none;
+    color: #666;
+    cursor: pointer; 
+    font-family: sans-serif;
+
+}
+
+.Rtable-body {
+    flex-direction: column;
+    // overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.Rtable-input {
+    width: 50%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding:0;
+    // padding-left: 6%; 
+    margin-top: 0px;
+     background-position: 0% 98%;
+     background-size: 10% 90%;
+     background-repeat: no-repeat;
+}
+  
+  @keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
+
+  .arrow-down {
+    background-image: url('/assets/images/arrow-down.png');
+    display:inline-block;
+    height:1.2vh;
+    width:1vh;
+    padding-right:2px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 15px;
+    transform: rotate(0deg);
+    transition: transform 0.4s linear;
+  }
+  .arrow-up {
+    background-image: url('/assets/images/arrow-up.png');
+    display:inline-block;
+    height:1.2vh;
+    width:1vh;
+    padding-right:2px;
+    background-size: 100% 100%;
+    position: relative;
+    left: 15px;
+    transform: rotate(360deg);
+    transition: transform 0.4s linear;
+  }
+  .pagination{
+    position: fixed;
+    right: 37.5vw;
+    bottom:2vh;
+    font-family: JosefinSans-light;
+    color:black;
+}

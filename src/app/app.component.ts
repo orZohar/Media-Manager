@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'google-books-app';
+  @BlockUI() blockUI: NgBlockUI;
+  title = 'media-manager';
+  ngOnInit(){
+  }
 }

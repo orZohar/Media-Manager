@@ -1,0 +1,25 @@
+
+    <div *ngIf="this.booksList && this.booksList.length > 0">
+      <div class="chart-container books-chart" >
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [colors]="barChartColor"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+    <span *ngIf="this.videosList && this.videosList.length > 0">
+        <div class="chart-container videos-chart" [style.left] = "this.booksList.length === 0  ? '16vw' : '57vw'">
+          <canvas baseChart 
+                  [datasets]="barChartData2"
+                  [labels]="barChartLabels2"
+                  [options]="barChartOptions"
+                  [colors]="barChartColor2"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType2">
+          </canvas>
+        </div>
+      </span>

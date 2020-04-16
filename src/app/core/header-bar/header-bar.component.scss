@@ -1,0 +1,76 @@
+.header-wrapper { 
+    position: fixed;
+    top: 0; // header should start at the top of the screen 
+    left:0;
+    height: 6vh;
+    width:100vw;
+    border-radius: 1px;
+    background-color: #343a40;
+    // z-index: 999;
+}
+.app-title{ 
+    position: fixed; 
+    left:1vh;
+    color:white;
+    cursor: pointer;
+    top:2vh;
+    font-size:1.2vw;
+    font-family: 'Josefin Sans', sans-serif;
+}
+  .books-count{
+      position: relative;
+      color:white;
+      left:2.5vw;
+  }
+  :focus {
+    outline: 0 !important;
+  }
+  .user-icon{
+    position: fixed; 
+    font-size:0.85vw;
+    color:#bfb6b6;
+    left: 90.3vw;
+    top:2.3vh;
+    cursor: pointer;
+  }
+  .arrow-icon{
+    position: fixed; 
+    color:#bfb6b6;
+    left: 91.3vw;
+    top:1.9vh;
+    font-size:0.8vw;
+    cursor: pointer;
+  }
+  .arrow-user:hover .user-icon{
+      color:white;
+  }
+  .arrow-user:hover .arrow-icon{
+    color:white;
+  }
+
+  .small-arrow-down-icon{
+    background-image: url('/assets/images/small-arrow-down-icon.png');
+    position:relative;
+    color:#bfb6b6;
+    display:inline-block;
+    bottom:2vh;
+    left: 84.5vw;
+  }
+  
+  .hello-username{
+    position: fixed; 
+    font-size:0.8vw;
+    color:#bfb6b6;
+    left: 92.8vw;
+    top:2.4vh;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+    cursor: pointer;
+  }
+
+.dropdown-position{
+    left: 89vw !important;
+    top:4.8vh !important;
+    z-index: 100000;
+}

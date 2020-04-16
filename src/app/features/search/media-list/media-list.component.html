@@ -1,0 +1,24 @@
+
+<div *ngIf="mediaType === 'books'" class="booklist-wrapper">
+    <div class="parent">
+        <div [ngClass]="removeHoverFromBooks === true ? 'delete-button-container' : 'book-container'" 
+        *ngFor="let book of booksList  | paginate: { itemsPerPage: 8, currentPage: paginationPage }; trackBy: trackByBooksListFunction " @enterAnimation>
+            <span *ngIf="addDeleteButton" class="delete-button" (click)="deleteMedia(book)"></span>
+            <book class="child" [bookData]="book" (click)="openMediaDialog(book.id)"></book>
+        </div>
+    </div>
+    <pagination-controls class="pagination" *ngIf="booksList.length > 0" (pageChange)="paginationPage = $event"></pagination-controls>
+</div>
+
+
+<div *ngIf="mediaType === 'videos'" class="booklist-wrapper">
+    <div class="parent">
+            <div [ngClass]="removeHoverFromBooks === true ? 'delete-button-container' : 'book-container'"
+             *ngFor="let video of videosList  | paginate: { itemsPerPage: 8, currentPage: paginationPage }; trackBy: trackByVideosListFunction" @enterAnimation>
+                <span *ngIf="addDeleteButton" class="delete-button" (click)="deleteMedia(video)"></span>
+                <my-video  class="child" [videoData]="video" (click)="openMediaDialog(video.id.videoId)" ></my-video>
+            </div>
+            <pagination-controls class="pagination" *ngIf="videosList.length > 0" (pageChange)="paginationPage = $event"></pagination-controls>
+        </div>
+</div>
+

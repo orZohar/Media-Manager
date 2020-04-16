@@ -1,0 +1,20 @@
+<div class='popup popup--exit popup--closable'>
+  <div class='header'>
+    <div class='title'>{{data.title}}</div>
+  </div>
+  <div class='body'>
+    <div class='content'>
+      <div class='align-center'>
+        {{data.content}}
+      </div>
+    </div>
+  </div>
+  <div class='footer'>
+    <div class='content'>
+      <div class='justify-apart btn-container'>
+        <button mat-raised-button class="yes-btn margin-btns" color="primary" (click)="matDialogRef.close(true)">Confirm</button>
+        <button mat-raised-button class="no-btn" style="border: 1px black" (click)="matDialogRef.close(false)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

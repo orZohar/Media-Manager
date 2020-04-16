@@ -1,0 +1,5 @@
+<div *ngIf="isTable === 'false'" class="wishlist">
+    <media-list [mediaList]="mediaList" [mediaType]="mediaType" [addDeleteButton]="true" [removeHoverFromBooks]="true" [disableAddButton]="true"></media-list>
+</div>
+
+<media-table [mediaList]="mediaList" [mediaType]="mediaType" *ngIf="isTable === 'true'"></media-table>

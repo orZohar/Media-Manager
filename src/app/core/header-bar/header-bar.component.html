@@ -1,0 +1,18 @@
+<div class="header-wrapper" style="z-index:10000 !important">
+        <span class="app-title">Media Manager </span>
+        <div class="btn-group " dropdown>
+                <span class="arrow-user" dropdownToggle>
+                        <fa-icon class="user-icon" [icon]="faUser"></fa-icon>
+                        <fa-icon class="arrow-icon" [icon]="faSortDown"></fa-icon>
+                </span>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-position" role="menu"
+                        aria-labelledby="button-basic">
+                        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/auth/login']">Login</a></li>
+                        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/auth/register']">Sign up</a></li>
+                        <li class="divider dropdown-divider"></li> 
+                        <li role="menuitem"><a class="dropdown-item" href="#" >Logout</a></li>
+                </ul>
+        </div>
+        <span *ngIf="user" class="hello-username">Hello, {{user}}</span>
+        <span *ngIf="!user" class="hello-username" [routerLink]="['/auth']">Sign in</span>
+</div>

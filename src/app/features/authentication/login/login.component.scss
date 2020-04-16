@@ -1,0 +1,49 @@
+
+/* 'Open Sans' font from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: #456;
+  // font-family: 'Open Sans', sans-serif;
+}
+
+.global-container{
+  // position: relative;
+  // height:34vh;
+  top:15vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  background-color: white;
+}
+
+form{
+  
+	padding-top: 10px;
+	font-size: 0.8vw;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; font-size: 1.6vw }
+
+.btn{
+	font-size: 1vw;
+	margin-top:20px;
+}
+
+.login-form{ 
+  position: relative;
+  top:8vh;
+  bottom: 24.3vh;
+  width: 17vw;
+  right: 28.3vw;
+  margin:0;
+  box-shadow: 0 0 20px #aaa;
+  box-shadow: 0 1.5em 2em -1em #999;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+

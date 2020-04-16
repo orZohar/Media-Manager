@@ -1,8 +1,13 @@
-<div class="welcome-message">
-    <div>Hello {{welcomeUserMsg}}, welcome to Search page!</div>
+
+<p-dropdown class="dropdown" [options]="searchOptions" placeholder="Select media type" [(ngModel)]="selectedType"
+    (ngModelChange)="mediaType=$event; updateSearchText(searchText)"></p-dropdown>
+
     <!-- search-bar -->
-    <search-bar (searchTextEmitter)="updateSearchText($event)"></search-bar>
-</div>
+    <!-- <search-bar class="search-place" (searchTextEmitter)="updateSearchText($event)"></search-bar> -->
+    <input class="search-place"  type="text" pInputText placeholder="Search here..." [(ngModel)]="property" (ngModelChange)="updateSearchText($event)" />
+    <div class="search-icon"></div>
 
 <!-- books search result -->
-<books-list [searchTextObservable]="searchTextObservable"></books-list>
+<div class="bookslist-wrapper">
+    <media-list [searchTextObservable]="searchTextObservable" [mediaType]="mediaType"></media-list>
+</div>

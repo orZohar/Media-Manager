@@ -1,0 +1,13 @@
+<div class="book-container">
+    <div class="book">
+        <div>
+            <img class="book-img" *ngIf="videoData.snippet.thumbnails" src="{{videoData.snippet.thumbnails.medium.url}}" />
+
+        </div>
+        <div style="position:relative; bottom:1vh">
+            <div class="book-title">{{videoData.snippet.title}}</div>
+            <div class="book-authors small-font">{{videoData.snippet.description}}</div>
+            <div class="book-date small-font">{{videoData.snippet.publishedAt | mediaDate}}</div>
+        </div>
+    </div>
+</div>

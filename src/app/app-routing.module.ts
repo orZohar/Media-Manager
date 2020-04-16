@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
-import { IsPermittedGuard } from './guards/is-permitted.guard';
+import { IsPermittedGuard } from './shared/guards/is-permitted.guard';
+
 
 const routes: Routes = [
   {
-    path: 'welcome',
-    component: WelcomePageComponent,
+    path: 'auth',
+    loadChildren: './features/authentication/authentication.module#AuthenticationModule'
   },
   {
     path: 'search',
@@ -14,14 +14,18 @@ const routes: Routes = [
     loadChildren: './features/search/search.module#SearchModule'
   },
   {
-    path: 'wishList',
+    path: 'media',
     canActivate: [IsPermittedGuard],
-    loadChildren: './features/wish-list/wish-list.module#WishListModule'
+    loadChildren: './features/media/media.module#MediaModule'
   },
-
-  { 
-    path: '**', 
-    redirectTo: '/welcome', 
+  {
+    path: 'statistics',
+    canActivate: [IsPermittedGuard],
+    loadChildren: './features/statistics/statistics.module#StatisticsModule'
+  },
+  {
+    path: '**',
+    redirectTo: '/auth',
   }
 ];
 

@@ -1,0 +1,38 @@
+.Rtable-row{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width:100%;
+    flex-grow: 1;
+    // border: 1px solid transparent;
+}
+
+.Rtable-row:hover{ 
+    color: #316cb3;
+}
+
+.Rtable-cell{
+    margin: 0;
+    flex-grow: 1; // makes cells even in the row flex 
+    width: 14%;
+    padding-top: 1.5vh;
+    padding-bottom: 1vh;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    height: 4.5vh; 
+    white-space: nowrap;
+    font-weight: 400; 
+    font-family: Helvetica Neue;
+    font-size: 0.8em;
+    padding-left:0.6vw;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+
+// .row-color1 { 
+//     background-color: #fdf6f6;
+// }
+
+// .row-color2 { 
+//     background-color: #fafafa;
+// }
