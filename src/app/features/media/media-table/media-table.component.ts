@@ -38,7 +38,7 @@ export class MediaTableComponent implements OnInit {
           title: this.shoppingCart[i].volumeInfo.title ? this.shoppingCart[i].volumeInfo.title : "",
           authors: this.shoppingCart[i].volumeInfo.authors ? this.shoppingCart[i].volumeInfo.authors.toString() : "",
           publishedDate: this.shoppingCart[i].volumeInfo.publishedDate ? this.shoppingCart[i].volumeInfo.publishedDate : "",
-          pageCount: this.shoppingCart[i].volumeInfo.pageCount ? parseInt(this.shoppingCart[i].volumeInfo.pageCount) : "",
+          pageCount: this.shoppingCart[i].volumeInfo.pageCount ? parseInt(this.shoppingCart[i].volumeInfo.pageCount) : null,
           language: this.shoppingCart[i].volumeInfo.language ? this.shoppingCart[i].volumeInfo.language : "",
         }
         this.tableData.push(obj)
