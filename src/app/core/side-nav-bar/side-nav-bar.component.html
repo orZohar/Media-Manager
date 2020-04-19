@@ -1,11 +1,23 @@
 
 
 <div class="sidebar">
-    <ul >
+        <ul >
+    <div *ngIf="isLoggedIn && selectedFile">
+            <label class="image-upload-container btn btn-bwm">
+                    <span>Select Image</span>
+                    <input #imageInput hidden="true"
+                           type="file"
+                           accept="image/*"
+                           (change)="processFile(imageInput)">
+                           <div class="container">
+                               <img class="profile-picture" src={{selectedFile.src}} alt="Avatar">
+                               <span class="overlay"><div class="text">Update</div></span>
+                        </div>
+            </label>
         <div class="example" [routerLink]="['auth']">
             <ul><li><a><i><span class="welcome-icon"></span><span class="hover hover-1"><span [routerLinkActive]="['active-tab']">Home</span></span></i></a></li></ul>
         </div>
-        <div *ngIf="isLoggedIn">
+     
             <div class="example" [routerLink]="['search']">
             <ul><li><a><i><span class="search-sidenav"></span><span class="hover hover-1"><span [routerLinkActive]="['active-tab']">Search</span></span></i></a></li></ul>
             </div>
@@ -42,7 +54,7 @@
 
 
                 <div class="example" [routerLink]="['statistics']">
-                    <ul><li><a><i><span class="statistics-icon"></span><span class="hover hover-1"><span [routerLinkActive]="['active-tab']">statistics</span></span></i></a></li></ul>
+                    <ul><li><a><i><span class="statistics-icon"></span><span class="hover hover-1"><span [routerLinkActive]="['active-tab']">Statistics</span></span></i></a></li></ul>
                 </div>
 
         </div>

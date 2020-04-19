@@ -6,7 +6,7 @@
     width:100vw;
     border-radius: 1px;
     background-color: #343a40;
-    // z-index: 999;
+    z-index:10000 !important;
 }
 .app-title{ 
     position: fixed; 
@@ -29,18 +29,27 @@
     position: fixed; 
     font-size:0.85vw;
     color:#bfb6b6;
-    left: 90.3vw;
+    left: 87.3vw;
     top:2.3vh;
     cursor: pointer;
   }
   .arrow-icon{
     position: fixed; 
     color:#bfb6b6;
-    left: 91.3vw;
+    left: 88.3vw;
     top:1.9vh;
     font-size:0.8vw;
     cursor: pointer;
   }
+  .settings-icon{
+    position: fixed; 
+    font-size:0.95vw;
+    color:#bfb6b6;
+    left: 96.7vw;
+    top:2.3vh;
+    cursor: pointer;
+  }
+
   .arrow-user:hover .user-icon{
       color:white;
   }
@@ -54,14 +63,14 @@
     color:#bfb6b6;
     display:inline-block;
     bottom:2vh;
-    left: 84.5vw;
+    left: 83.5vw;
   }
   
   .hello-username{
     position: fixed; 
     font-size:0.8vw;
     color:#bfb6b6;
-    left: 92.8vw;
+    left: 89.8vw;
     top:2.4vh;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -70,7 +79,12 @@
   }
 
 .dropdown-position{
-    left: 89vw !important;
+    left: 88vw !important;
+    top:4.8vh !important;
+    z-index: 100000;
+}
+.settings-dropdown{
+  left: 91vw !important;
     top:4.8vh !important;
     z-index: 100000;
 }

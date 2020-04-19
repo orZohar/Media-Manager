@@ -5,6 +5,7 @@ import { throwError, EMPTY, of, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { EventService } from './event.service';
+import { User } from 'src/app/shared/interfaces/user.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +14,10 @@ export class MediaService {
   booksList;
   videosList;
   username;
+  user: User;
   subscriptions: Subscription = new Subscription();
 
-  constructor(private http: HttpClient, private toastrService: ToastrService, private eventService: EventService) { }
+  constructor(private http: HttpClient, private toastrService: ToastrService, private mediaService: MediaService) { }
 
   public getBooks(searchText) {
     return this.http.get<Object>("https://www.googleapis.com/books/v1/volumes?q=" + searchText + "&maxResults=20"
@@ -61,12 +63,15 @@ export class MediaService {
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
     }
-    var index = usersList.findIndex(user => user.userData.username === this.username);
+    var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
+    console.log(index)
     if ((usersList[index].booksList.findIndex(elem => elem.id === book.id)) >= 0) {
       this.toastrService.error('Book is already exists');
       return;
     } else {
       usersList[index].booksList.push(book);
+       //update client
+      this.user.booksList.push(book);
       this.toastrService.success("Item added to book list");
     }
     localStorage.setItem("users", JSON.stringify(usersList));
@@ -79,7 +84,7 @@ export class MediaService {
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
     }
-    var index = usersList.findIndex(user => user.userData.username === this.username);
+    var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
 
 
     if ((usersList[index].videosList.findIndex(elem => elem.id.videoId === video.id.videoId)) >= 0) {
@@ -87,6 +92,8 @@ export class MediaService {
       return;
     } else {
       usersList[index].videosList.push(video);
+       //update client
+      this.user.videosList.push(video);
       this.toastrService.success("Item added to video list");
     }
     localStorage.setItem("users", JSON.stringify(usersList));
@@ -101,11 +108,13 @@ export class MediaService {
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
     }
-    var userIndex = usersList.findIndex(user => user.userData.username === this.username);
+    var userIndex = usersList.findIndex(item => item.userData.username === this.user.userData.username);
     // get index for remove an item
     var bookIndex = usersList[userIndex].booksList.findIndex(elem => elem.id === book.id);
 
     usersList[userIndex].booksList.splice(bookIndex, 1);
+     //update client
+    this.user.booksList.splice(bookIndex, 1);
     localStorage.setItem("users", JSON.stringify(usersList));
   }
 
@@ -116,10 +125,27 @@ export class MediaService {
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
     }
-    var userIndex = usersList.findIndex(user => user.userData.username === this.username);
+    var userIndex = usersList.findIndex(item => item.userData.username === this.user.userData.username);
     // get index for remove an item
     var videoIndex = usersList[userIndex].videosList.findIndex(elem => elem.id.videoId === video.id.videoId);
     usersList[userIndex].videosList.splice(videoIndex, 1);
+     //update client
+    this.user.videosList.splice(videoIndex, 1);
+    localStorage.setItem("users", JSON.stringify(usersList));
+  }
+  
+  setProfilePicture(profilePic){
+
+    let usersList = [];
+    // get current wish list from local storage
+    if (localStorage.getItem('users')) {
+      usersList = JSON.parse(localStorage.getItem("users"));
+    }
+    var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
+    usersList[index].profilePic = profilePic;
+    //update client
+    this.user.profilePic = profilePic;
+    this.toastrService.success("Profile picture changed successfully");
     localStorage.setItem("users", JSON.stringify(usersList));
   }
 

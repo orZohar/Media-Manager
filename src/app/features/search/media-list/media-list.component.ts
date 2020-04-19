@@ -35,20 +35,18 @@ export class MediaListComponent implements OnInit {
   @Input() booksList: Book[] = [];
   @Input() videosList: Video[] = [];
   @Input() mediaList: any[] = [];
-  @Input() disableAddButton: boolean; // (bookslist)
-  @Input() addDeleteButton: boolean; // (bookslist)
-  @Input() removeHoverFromBooks: boolean; // (bookslist)
-  @Input() mediaType: string; // (bookslist)
+  @Input() disableAddButton: boolean;
+  @Input() addDeleteButton: boolean; 
+  @Input() removeHoverFromBooks: boolean; 
+  @Input() mediaType: string; 
 
   subscriptions: Subscription = new Subscription();
   dialogRef: MatDialogRef<any>;
   searchText: string;
   paginationPage: number;
+
   constructor(private mediaService: MediaService, private dialog: MatDialog, private eventService: EventService) { }
-  ngOnInit() {
-
-  }
-
+  
   ngOnChanges(changes: SimpleChanges) {
     if (changes.searchTextObservable) {
       this.subscriptions.add(this.searchTextObservable.subscribe(result => {
@@ -68,6 +66,8 @@ export class MediaListComponent implements OnInit {
     }
   }
 
+  ngOnInit() {}
+
   searchBooks() {
     this.subscriptions.add(this.mediaService.getBooks(this.searchText).subscribe(result => {
       // if server didn't return anything booklist will be empty 
@@ -84,7 +84,7 @@ export class MediaListComponent implements OnInit {
 
   searchVideos() {
     this.subscriptions.add(this.mediaService.getVideos(this.searchText).subscribe(result => {
-      // if server didn't return anything booklist will be empty 
+      // if server didn't return anything videoList will be empty 
       if (result) {
 
         this.videosList = result;

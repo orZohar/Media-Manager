@@ -205,3 +205,53 @@ $animate: all 0.2s ease-in-out;
   position: relative;
   left: 6.1vw;
 }
+
+img {
+  border-radius: 50%;
+}
+
+
+.container {
+  position: relative;
+  width:5vw;
+  height:9.3vh;
+  left:3.3vw;
+  margin-bottom:30px;
+}
+.container:hover {
+  opacity: 0.5;
+}
+
+.profile-picture {
+  display: block;
+  width:5vw;
+  height:9.3vh;
+  left:3.3vw;
+
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  bottom:2vh;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 0.9vw;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}

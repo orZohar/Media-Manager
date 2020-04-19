@@ -66,7 +66,7 @@ export class StatisticsComponent implements OnInit {
         if (localStorage.getItem('users')) {
             var usersList = JSON.parse(localStorage.getItem("users"));
           }
-          var user = usersList.find(user => user.userData.username === this.mediaService.username);
+          var user = usersList.find(user => user.userData.username === this.mediaService.user.userData.username);
     
         // get list of spesific media 
         this.videosList = user.videosList;

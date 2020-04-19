@@ -10,7 +10,6 @@ import { MediaService } from 'src/app/core/services/media.service';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
-  welcomeUserMsg: string;
   searchText: string;
   milisecToDebounce: number = 1000;
   modelChanged = new Subject<string>(); // obs for triggering debouncer
@@ -32,11 +31,7 @@ export class SearchPageComponent implements OnInit {
         this.searchTextObservable.next(this.searchText);
       }))
   };
-  ngOnInit() {
-    // get username from session storage
-    this.welcomeUserMsg = JSON.parse(sessionStorage.getItem('user'));
-  }
-
+  ngOnInit() {}
   updateSearchText(event) {
     // assign searchText (came from search-bar component)
     this.searchText = event;

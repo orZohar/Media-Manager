@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private mediaService: MediaService, private authService: AuthService,
     private formBuilder: FormBuilder, private toastrService: ToastrService, private eventService: EventService) { }
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   signIn() {
+
     // check if the form is valid
     if (!this.bookForm.valid) {
       return;
@@ -36,8 +38,8 @@ export class LoginComponent implements OnInit {
           } else {
             this.mediaService.isLoggedIn = true;
             this.toastrService.success('Logged in successfully');
-            this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", this.username));
-            this.mediaService.username = this.username;
+            this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER",  { username: this.username, profilePic: this.mediaService.user.profilePic }));
+            this.mediaService.user.userData.username = this.username;
             this.router.navigate(['search']);
           }
         },error => {

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroupDirective, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
@@ -25,10 +25,19 @@ export class RegisterComponent implements OnInit {
     password: "",
     confirmPassword: ""
   }
+  isEditMode: boolean;
 
   constructor(private router: Router, private mediaService: MediaService, private authService: AuthService,
-    private toastrService: ToastrService, private eventService: EventService) { }
-  ngOnInit() { }
+    private toastrService: ToastrService, private eventService: EventService, private activatedRoute: ActivatedRoute) { }
+  ngOnInit() {
+    this.subscriptions.add(this.activatedRoute.data.subscribe(data => {
+      // if it's edit mode 
+      if (data.edit && this.mediaService.user) {
+        this.isEditMode = data.edit;
+        this.userData = this.mediaService.user.userData;
+      }
+    }));
+  }
 
   signUp() {
     // check if the form is valid
@@ -45,19 +54,31 @@ export class RegisterComponent implements OnInit {
       this.toastrService.error("Invalid email format");
       return;
     }
-
-    this.authService.signUp(this.userData)
+    if (this.isEditMode) {
+      this.authService.editProfile(this.mediaService.user)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.mediaService.isLoggedIn = true;
+            this.toastrService.success('Profile edited successfully');
+            this.router.navigate(['search']);
+            this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER",{}));
+          }, error => {
+            this.toastrService.error(error.error.msg);
+          });
+    }else{
+      this.authService.signUp(this.userData)
       .pipe(first())
       .subscribe(
         data => {
           this.mediaService.isLoggedIn = true;
           this.toastrService.success('Registration successful');
-          this.mediaService.username = this.userData.username;
           this.router.navigate(['search']);
-          this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", this.userData.username));
+          this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", {}));
         }, error => {
           this.toastrService.error(error.error.msg);
         });
+    }
   }
 
   validateEmail(email) {

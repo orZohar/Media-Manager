@@ -26,7 +26,7 @@ export class MediaPageComponent implements OnInit {
       if (localStorage.getItem('users')) {
         var usersList = JSON.parse(localStorage.getItem("users"));
       }
-      var user = usersList.find(user => user.userData.username === this.mediaService.username);
+      var user = usersList.find(user => user.userData.username === this.mediaService.user.userData.username);
 
       if(this.mediaType === 'books'){
         this.mediaList = user.booksList;
