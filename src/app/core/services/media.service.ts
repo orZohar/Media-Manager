@@ -4,7 +4,6 @@ import 'rxjs/add/operator/catch';
 import { throwError, EMPTY, of, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { EventService } from './event.service';
 import { User } from 'src/app/shared/interfaces/user.interface';
 @Injectable({
   providedIn: 'root'
@@ -86,7 +85,6 @@ export class MediaService {
     }
     var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
 
-
     if ((usersList[index].videosList.findIndex(elem => elem.id.videoId === video.id.videoId)) >= 0) {
       this.toastrService.error('Video is already exists');
       return;
@@ -97,8 +95,6 @@ export class MediaService {
       this.toastrService.success("Item added to video list");
     }
     localStorage.setItem("users", JSON.stringify(usersList));
-
-
   }
 
   deleteBook(book) {

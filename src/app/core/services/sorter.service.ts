@@ -12,7 +12,6 @@ export class SorterService {
     // check type of requests items to sort 
     let sortingType = typeof (array[0][header['name']]);
 
-
     switch (sortingType) {
       case 'string':
         // make all names lower case 
@@ -20,6 +19,7 @@ export class SorterService {
           element[header['name']] = element[header['name']].toString().toLowerCase();
 
         });
+      
         // if it's 'moment' date string 
         if (header['name'] === 'publishedAt') {
           array.sort((a: Object, b: Object) => {
