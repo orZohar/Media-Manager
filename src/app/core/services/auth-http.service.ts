@@ -41,11 +41,13 @@ export class AuthHttpService {
       return throwError({ error: { msg: 'Username "' + userData.username + '" is already taken' } });
     } else {
       var user = {
-        profilePic: null,
+        profilePic: {},
         userData: userData,
         booksList: [],
         videosList: []
       }
+      // update service
+      this.mediaService.user = user;
       users.push(user);
 
       this.updateLocalStorage(users, 'users');
@@ -68,7 +70,7 @@ export class AuthHttpService {
     }
     var index = users.findIndex(elem => elem.userData.username === user.userData.username);
     users[index] = user;
-    this.mediaService.user = user; // update service
+    this.mediaService.user = user; // update client
     this.updateLocalStorage(users, 'users');
     return of(new HttpResponse({ status: 200 }))
 }

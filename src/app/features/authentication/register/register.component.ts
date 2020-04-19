@@ -74,6 +74,7 @@ export class RegisterComponent implements OnInit {
           this.mediaService.isLoggedIn = true;
           this.toastrService.success('Registration successful');
           this.router.navigate(['search']);
+console.log(this.mediaService.user)
           this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", {}));
         }, error => {
           this.toastrService.error(error.error.msg);

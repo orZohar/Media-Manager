@@ -16,7 +16,7 @@ export class MediaService {
   user: User;
   subscriptions: Subscription = new Subscription();
 
-  constructor(private http: HttpClient, private toastrService: ToastrService, private mediaService: MediaService) { }
+  constructor(private http: HttpClient, private toastrService: ToastrService) { }
 
   public getBooks(searchText) {
     return this.http.get<Object>("https://www.googleapis.com/books/v1/volumes?q=" + searchText + "&maxResults=20"
@@ -69,7 +69,7 @@ export class MediaService {
       return;
     } else {
       usersList[index].booksList.push(book);
-       //update client
+      // update client
       this.user.booksList.push(book);
       this.toastrService.success("Item added to book list");
     }
@@ -84,13 +84,12 @@ export class MediaService {
       usersList = JSON.parse(localStorage.getItem("users"));
     }
     var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
-
     if ((usersList[index].videosList.findIndex(elem => elem.id.videoId === video.id.videoId)) >= 0) {
       this.toastrService.error('Video is already exists');
       return;
     } else {
       usersList[index].videosList.push(video);
-       //update client
+      // update service
       this.user.videosList.push(video);
       this.toastrService.success("Item added to video list");
     }
@@ -99,7 +98,6 @@ export class MediaService {
 
   deleteBook(book) {
     let usersList = [];
-
     // get current wish list from local storage
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
@@ -109,14 +107,13 @@ export class MediaService {
     var bookIndex = usersList[userIndex].booksList.findIndex(elem => elem.id === book.id);
 
     usersList[userIndex].booksList.splice(bookIndex, 1);
-     //update client
+     // update service
     this.user.booksList.splice(bookIndex, 1);
     localStorage.setItem("users", JSON.stringify(usersList));
   }
 
   deleteVideo(video) {
     let usersList = [];
-
     // get current wish list from local storage
     if (localStorage.getItem('users')) {
       usersList = JSON.parse(localStorage.getItem("users"));
@@ -125,13 +122,12 @@ export class MediaService {
     // get index for remove an item
     var videoIndex = usersList[userIndex].videosList.findIndex(elem => elem.id.videoId === video.id.videoId);
     usersList[userIndex].videosList.splice(videoIndex, 1);
-     //update client
+     // update service
     this.user.videosList.splice(videoIndex, 1);
     localStorage.setItem("users", JSON.stringify(usersList));
   }
   
   setProfilePicture(profilePic){
-
     let usersList = [];
     // get current wish list from local storage
     if (localStorage.getItem('users')) {
@@ -139,10 +135,9 @@ export class MediaService {
     }
     var index = usersList.findIndex(item => item.userData.username === this.user.userData.username);
     usersList[index].profilePic = profilePic;
-    //update client
+    // update service
     this.user.profilePic = profilePic;
     this.toastrService.success("Profile picture changed successfully");
     localStorage.setItem("users", JSON.stringify(usersList));
   }
-
 }

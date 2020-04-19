@@ -33,7 +33,7 @@ export class SideNavBarComponent implements OnInit {
     // listener for user data for openning chat with spesific user directly 
     this.subscriptions.add(this.eventService.on("SHOW_LOGGED_USER", (user: any) => {
       this.username = this.mediaService.user.userData.username;
-      if (this.mediaService.user.profilePic) {
+      if (this.mediaService.user.profilePic.src) {
         this.selectedFile = this.mediaService.user.profilePic;
       } else {
         this.selectedFile.src = "/assets/images/no-profile-picture.jpg"

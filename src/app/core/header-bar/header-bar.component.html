@@ -1,7 +1,6 @@
 <div class="header-wrapper">
         <span class="app-title">Media Manager </span>
-
-        <div class="btn-group" dropdown>
+        <div *ngIf="username" class="btn-group" dropdown>
                 <span class="arrow-user" dropdownToggle>
                         <fa-icon class="settings-icon" [icon]="faCog"></fa-icon>
                 </span>
