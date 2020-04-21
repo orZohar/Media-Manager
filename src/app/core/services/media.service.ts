@@ -5,6 +5,7 @@ import { throwError, EMPTY, of, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/shared/interfaces/user.interface';
+import { EventService } from './event.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class MediaService {
   user: User;
   subscriptions: Subscription = new Subscription();
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) { }
+  constructor(private http: HttpClient, private toastrService: ToastrService, private eventService : EventService) { }
 
   public getBooks(searchText) {
     return this.http.get<Object>("https://www.googleapis.com/books/v1/volumes?q=" + searchText + "&maxResults=20"
@@ -69,11 +70,14 @@ export class MediaService {
       return;
     } else {
       usersList[index].booksList.push(book);
+      book.addedDate = new Date();
+      
       // update client
       this.user.booksList.push(book);
       this.toastrService.success("Item added to book list");
     }
     localStorage.setItem("users", JSON.stringify(usersList));
+    this.subscriptions.add(this.eventService.BroadcastEvent("UPDATE_MEDIA_COUNT", {}));
   }
 
   addVideo(video) {
@@ -89,11 +93,14 @@ export class MediaService {
       return;
     } else {
       usersList[index].videosList.push(video);
+      video.addedDate = new Date();
+      
       // update service
       this.user.videosList.push(video);
       this.toastrService.success("Item added to video list");
     }
     localStorage.setItem("users", JSON.stringify(usersList));
+    this.subscriptions.add(this.eventService.BroadcastEvent("UPDATE_MEDIA_COUNT", {}));
   }
 
   deleteBook(book) {
@@ -110,6 +117,8 @@ export class MediaService {
      // update service
     this.user.booksList.splice(bookIndex, 1);
     localStorage.setItem("users", JSON.stringify(usersList));
+    // update media count in client
+
   }
 
   deleteVideo(video) {
@@ -139,5 +148,6 @@ export class MediaService {
     this.user.profilePic = profilePic;
     this.toastrService.success("Profile picture changed successfully");
     localStorage.setItem("users", JSON.stringify(usersList));
+
   }
 }

@@ -1,11 +1,31 @@
-
 <p-dropdown class="dropdown" [options]="searchOptions" placeholder="Select media type" [(ngModel)]="selectedType"
     (ngModelChange)="mediaType=$event; updateSearchText(searchText)"></p-dropdown>
 
-    <!-- search-bar -->
-    <!-- <search-bar class="search-place" (searchTextEmitter)="updateSearchText($event)"></search-bar> -->
-    <input class="search-place"  type="text" pInputText placeholder="Search here..." [(ngModel)]="property" (ngModelChange)="updateSearchText($event)" />
-    <div class="search-icon"></div>
+<!-- search-bar -->
+<!-- <search-bar class="search-place" (searchTextEmitter)="updateSearchText($event)"></search-bar> -->
+<input class="search-place" type="text" pInputText placeholder="Search here..." [(ngModel)]="property" (ngModelChange)="updateSearchText($event)" />
+<div class="search-icon"></div>
+
+
+<span class="header-container">
+        <div>
+            <fa-icon class="users-icon" [icon]="faUserFriends"></fa-icon>
+            <div class="users-count">{{usersCount}}</div>
+            <div class="registred-users">Registered Users</div>
+    
+        </div>
+        <div class="messages-header">
+            <fa-icon class="users-icon" [icon]="faEnvelope"></fa-icon>
+            <div class="users-count">0</div>
+            <div class="registred-users">New Messages</div>
+    
+        </div>
+        <div class="media-header">
+            <fa-icon class="users-icon" [icon]="faPhotoVideo"></fa-icon>
+            <div class="users-count">{{newMediaCount}}</div>
+            <div class="registred-users" style="left:5.2vw;" >New Media</div>
+        </div>
+    </span>
 
 <!-- books search result -->
 <div class="bookslist-wrapper">

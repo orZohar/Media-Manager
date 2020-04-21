@@ -29,3 +29,41 @@
   transform: rotate(0deg);
   transition: transform 0.4s linear;
 } 
+.header-container{
+  position:fixed;
+  left:45vw;
+  top:23vh;
+}
+
+.messages-header{
+  position: relative;
+  left:17vw;
+  bottom:12.5vh;
+}
+.media-header{
+  position: relative;
+  left:34.5vw;
+  bottom:25vh;
+}
+
+.users-icon{
+  position: relative;
+  font-size: 2.2vw;
+  color: #8f5496;
+  bottom: 13vh;
+  cursor: pointer;
+}
+.users-count{
+  font-weight: bold;
+  position: relative;
+  left: 7vw;
+  bottom: 19.7vh;
+  font-size: 1.1vw;
+}
+
+.registred-users{
+  position: relative;
+  left: 4.4vw;
+  bottom:20vh;
+}
+

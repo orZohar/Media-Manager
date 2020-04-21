@@ -26,16 +26,11 @@ export class LoginComponent implements OnInit {
   faEnvelope = faEnvelope; 
   faPhotoVideo = faPhotoVideo;
   usersCount: number;
+  isLoggedIn: boolean;
 
   constructor(private router: Router, private mediaService: MediaService, private authService: AuthService, private toastrService: ToastrService, private eventService: EventService) { }
   ngOnInit() {
-    // get users count;
-    let usersList = JSON.parse(localStorage.getItem("users"));
-    if(usersList && usersList.length > 0 ){
-      this.usersCount = usersList.length;
-    } else{
-      this.usersCount = 0;
-    }
+
   }
 
   signIn() {

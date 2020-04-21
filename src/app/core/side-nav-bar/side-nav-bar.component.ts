@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { MediaService } from 'src/app/core/services/media.service';
 import { EventService } from '../services/event.service';
+import { faKey } from '@fortawesome/free-solid-svg-icons';
+
 class ImageSnippet {
   constructor(public src: string, public file: File) { }
 }
@@ -16,7 +18,7 @@ export class SideNavBarComponent implements OnInit {
   isLoggedIn: boolean;
   subscriptions: Subscription = new Subscription();
   username: string;
-
+  faKey = faKey;
   selectedFile: ImageSnippet = {
     src: null,
     file: null

@@ -40,7 +40,6 @@ export class HeaderBarComponent implements OnInit {
   ngOnInit() {
     // listener for user data for openning chat with spesific user directly 
     this.subscriptions.add(this.eventService.on("SHOW_LOGGED_USER", (user: any) => {
-      console.log(this.mediaService.user)
       this.username = this.mediaService.user.userData.username;
     }));
   }
