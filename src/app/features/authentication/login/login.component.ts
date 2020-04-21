@@ -31,11 +31,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // get users count;
     let usersList = JSON.parse(localStorage.getItem("users"));
-    this.usersCount = usersList.length;
+    if(usersList && usersList.length > 0 ){
+      this.usersCount = usersList.length;
+    } else{
+      this.usersCount = 0;
+    }
   }
 
   signIn() {
-
+    
     // check if the form is valid
     if (!this.bookForm.valid) {
       return;
@@ -67,9 +71,7 @@ export class LoginComponent implements OnInit {
     //temporary
   }
 
-
   loginResult(result) {
-
     if (result === "username doesn't exist") {
       this.toastrService.error("Username doesn't exist")
     }
