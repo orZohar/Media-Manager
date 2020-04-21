@@ -6,6 +6,9 @@ import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/core/services/event.service';
 import { MediaService } from 'src/app/core/services/media.service';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +22,16 @@ export class LoginComponent implements OnInit {
   password: string;
   submitted = false;
   subscriptions: Subscription = new Subscription();
+  faUserFriends = faUserFriends;
+  faEnvelope = faEnvelope; 
+  faPhotoVideo = faPhotoVideo;
+  usersCount: number;
 
-  constructor(private router: Router, private mediaService: MediaService, private authService: AuthService,
-    private formBuilder: FormBuilder, private toastrService: ToastrService, private eventService: EventService) { }
+  constructor(private router: Router, private mediaService: MediaService, private authService: AuthService, private toastrService: ToastrService, private eventService: EventService) { }
   ngOnInit() {
+    // get users count;
+    let usersList = JSON.parse(localStorage.getItem("users"));
+    this.usersCount = usersList.length;
   }
 
   signIn() {
@@ -32,19 +41,19 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authService.login(this.username, this.password).subscribe(
-        data => {        
-          if (data.status === 404) {
-            this.toastrService.error('Username or password is incorrect');
-          } else {
-            this.mediaService.isLoggedIn = true;
-            this.toastrService.success('Logged in successfully');
-            this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER",  { username: this.username, profilePic: this.mediaService.user.profilePic }));
-            this.mediaService.user.userData.username = this.username;
-            this.router.navigate(['search']);
-          }
-        },error => {
-          this.toastrService.error(error.msg);
-        });
+      data => {
+        if (data.status === 404) {
+          this.toastrService.error('Username or password is incorrect');
+        } else {
+          this.mediaService.isLoggedIn = true;
+          this.toastrService.success('Logged in successfully');
+          this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", { username: this.username, profilePic: this.mediaService.user.profilePic }));
+          this.mediaService.user.userData.username = this.username;
+          this.router.navigate(['search']);
+        }
+      }, error => {
+        this.toastrService.error(error.msg);
+      });
 
     // server preperation ///////////////////////////////////////
 
@@ -60,6 +69,7 @@ export class LoginComponent implements OnInit {
 
 
   loginResult(result) {
+
     if (result === "username doesn't exist") {
       this.toastrService.error("Username doesn't exist")
     }

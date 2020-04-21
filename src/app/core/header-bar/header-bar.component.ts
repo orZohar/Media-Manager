@@ -30,7 +30,6 @@ export class HeaderBarComponent implements OnInit {
   faCog = faCog;
   username: string;
 
-  
   searchOptions: SelectItem[] = [
     { label: 'Login', value: 'login' },
     { label: 'Logout', value: 'logout' },
