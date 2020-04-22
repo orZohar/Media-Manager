@@ -6,17 +6,17 @@
                     <h3 class="text-center font-weight-light my-4" style="font-size:1.4vw;">Create Account</h3>
                 </div>
                 <div class="card-body">
-                        <form #userForm="ngForm" class="login-container" autocomplete="off" novalidate (ngSubmit)="signUp()">
+                        <form #userForm="ngForm" class="login-container" style="font-size: 0.8vw;" autocomplete="off" novalidate (ngSubmit)="signUp()">
                                 <div class="form-row">
                             <div class="col-md-6">
-                                <div class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputFirstName">Username</label>
-                                    <input #refusername #user="ngModel" [(ngModel)]="userData.username"  name="username" class="form-control py-4" id="inputFirstName" style="font-size:0.7vw;" type="text" 
+                                <div ><label  style="font-size:0.7vw;" for="inputFirstName">Username</label>
+                                    <input #refusername #user="ngModel" [(ngModel)]="userData.username"  name="username" class="form-control py-4" style="font-size:0.7vw;" type="text" 
                                     placeholder="Enter Username"  maxlength="10" required/>
                                     <validation-messages [form]="user" [elementsRefs]="[refusername]"></validation-messages>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputEmailAddress">Email</label>
+                                <div ><label class="small mb-1" style="font-size:0.7vw;" for="inputEmailAddress">Email</label>
                                     <input #refEmail #emailAd="ngModel" [(ngModel)]="userData.email"  name="emailAd" class="form-control py-4" id="inputEmailAddress" style="font-size:0.7vw;" type="email" aria-describedby="emailHelp"
                                         placeholder="Enter email address" required/></div>
                                         <validation-messages [form]="emailAd" [elementsRefs]="[refEmail]"></validation-messages>
@@ -24,14 +24,14 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <div class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputFirstName">FirstName</label>
+                                <div ><label class="small mb-1" style="font-size:0.7vw;" for="inputFirstName">FirstName</label>
                                     <input #refFirstname #first="ngModel" [(ngModel)]="userData.firstname"  name="first" class="form-control py-4" id="inputFirstName2" style="font-size:0.7vw;" type="text"
                                         placeholder="Enter first name" required/></div>
                                         <validation-messages [form]="first" [elementsRefs]="[refFirstname]"></validation-messages>
 
                             </div>
                             <div class="col-md-6">
-                                <div  class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputLastName">LastName</label>
+                                <div><label class="small mb-1" style="font-size:0.7vw;" for="inputLastName">LastName</label>
                                     <input #refLastname #last="ngModel" [(ngModel)]="userData.lastname"  name="last" class="form-control py-4" id="inputLastName2" style="font-size:0.7vw;" type="text"
                                     placeholder="Enter last name" required/></div>
                                     <validation-messages [form]="last" [elementsRefs]="[refLastname]"></validation-messages>
@@ -39,13 +39,13 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <div class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputPassword">Password</label>
+                                <div><label class="small mb-1" style="font-size:0.7vw;" for="inputPassword">Password</label>
                                     <input #refPassword type="password" #pass="ngModel" [(ngModel)]="userData.password" name="password" class="form-control py-4" style="font-size:0.7vw" id="inputPassword" type="password" placeholder="Enter password" required/></div>
                                     <validation-messages [form]="pass" [elementsRefs]="[refPassword]"></validation-messages>
 
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"><label class="small mb-1" style="font-size:0.7vw;" for="inputConfirmPassword">Confirm Password</label>
+                                <div><label class="small mb-1" style="font-size:0.7vw;" for="inputConfirmPassword">Confirm Password</label>
                                     <input  #refConfirmPassword type="password" #confirmPass="ngModel" [(ngModel)]="userData.confirmPassword" name="confirmPassword" class="form-control py-4" style="font-size:0.7vw" id="inputConfirmPassword" type="password"
                                     placeholder="Confirm password" required/></div>
                                     <validation-messages [form]="confirmPass" [elementsRefs]="[refConfirmPassword]"></validation-messages>
