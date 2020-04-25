@@ -28,22 +28,42 @@
   transform: rotate(0deg);
   transition: transform 0.4s linear;
 } 
+
+// .parent {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-bottom:2vh;
+// }
+
+
+
+
 .header-container{
   position:fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   left:45vw;
   top:23vh;
 }
 
-.messages-header{
-  position: relative;
-  left:17vw;
-  bottom:12.5vh;
+.child {
+  position: relative;;
+bottom:10vh;
+  margin: 5vw;
+  height: 100px;
 }
-.media-header{
-  position: relative;
-  left:34.5vw;
-  bottom:25vh;
-}
+
+// .messages-header{
+//   position: relative;
+//   left:17vw;
+//   bottom:12.5vh;
+// }
+// .media-header{
+//   position: relative;
+//   left:34.5vw;
+//   bottom:25vh;
+// }
 
 .users-icon{
   position: relative;

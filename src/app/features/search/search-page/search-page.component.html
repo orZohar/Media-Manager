@@ -8,26 +8,28 @@
 
 
 <span class="header-container">
-        <div>
+
+        <div class="child">
             <fa-icon class="users-icon" [icon]="faUserFriends"></fa-icon>
             <div class="users-count">{{usersCount}}</div>
             <div class="registred-users">Registered Users</div>
     
-        </div>
-        <div class="messages-header">
+        </div >
+        <div class="child">
             <fa-icon class="users-icon" [icon]="faEnvelope"></fa-icon>
             <div class="users-count">0</div>
             <div class="registred-users">New Messages</div>
     
         </div>
-        <div class="media-header">
+        <div class="child">
             <fa-icon class="users-icon" [icon]="faPhotoVideo"></fa-icon>
             <div class="users-count">{{newMediaCount}}</div>
-            <div class="registred-users" style="left:5.3vw;" >New Media</div>
+            <div class="registred-users" >New Media</div>
         </div>
+        
     </span>
 
-<!-- books search result -->
+<!-- books media-header messages-headersearch result -->
 <div class="bookslist-wrapper">
     <media-list [searchTextObservable]="searchTextObservable" [mediaType]="mediaType"></media-list>
 </div>
