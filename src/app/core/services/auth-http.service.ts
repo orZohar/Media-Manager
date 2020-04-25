@@ -62,20 +62,18 @@ export class AuthHttpService {
     return of(new HttpResponse({ status: 200 }));
   }
 
-  editProfile(user) {
+  editProfile(user,oldUserData) {
     let users = [];
     // get current wish list from local storage
     if (localStorage.getItem('users')) {
       users = JSON.parse(localStorage.getItem("users") || "[]");
     }
-    var index = users.findIndex(elem => elem.userData.username === user.userData.username);
+    var index = users.findIndex(elem => elem.userData.username === oldUserData.userData.username);
     users[index] = user;
     this.mediaService.user = user; // update client
     this.updateLocalStorage(users, 'users');
     return of(new HttpResponse({ status: 200 }))
 }
-
-
   public serialize(obj: any): HttpParams {
   let params: HttpParams = new HttpParams();
   for (var key in obj) {

@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/core/services/event.service';
 import { UserData } from 'src/app/shared/interfaces/userData.interface';
 import { MediaService } from 'src/app/core/services/media.service';
+import { User } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-register',
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
     password: "",
     confirmPassword: ""
   }
+  previousUser: User;
   isEditMode: boolean;
 
   constructor(private router: Router, private mediaService: MediaService, private authService: AuthService,
@@ -35,6 +37,8 @@ export class RegisterComponent implements OnInit {
       if (data.edit && this.mediaService.user) {
         this.isEditMode = data.edit;
         this.userData = this.mediaService.user.userData;
+        // deep copy previous userData for editing
+        this.previousUser = JSON.parse(JSON.stringify(this.mediaService.user))
       }
     }));
   }
@@ -55,7 +59,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
     if (this.isEditMode) {
-      this.authService.editProfile(this.mediaService.user)
+      
+      this.authService.editProfile(this.mediaService.user, this.previousUser)
         .pipe(first())
         .subscribe(
           data => {
@@ -74,7 +79,6 @@ export class RegisterComponent implements OnInit {
           this.mediaService.isLoggedIn = true;
           this.toastrService.success('Registration successful');
           this.router.navigate(['search']);
-console.log(this.mediaService.user)
           this.subscriptions.add(this.eventService.BroadcastEvent("SHOW_LOGGED_USER", {}));
         }, error => {
           this.toastrService.error(error.error.msg);

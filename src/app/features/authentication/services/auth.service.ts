@@ -17,7 +17,7 @@ export class AuthService {
     return this.authHttpService.signUp(user);
   }
 
-  editProfile(user: any): Observable<any> {
-    return this.authHttpService.editProfile(user);
+  editProfile(user: any, oldUserData): Observable<any> {
+    return this.authHttpService.editProfile(user, oldUserData);
   }
 }
