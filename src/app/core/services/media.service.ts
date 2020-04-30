@@ -36,7 +36,7 @@ export class MediaService {
       });
   }
   getVideos(searchText) {
-    return this.http.get<Object>("https://www.googleapis.com/youtube/v3/search?key=AIzaSyA7yRGH7wSQ190MgYsLeSaZq94FlOuV3cE&order=relevance&part=snippet%20&type=video,id&" +
+    return this.http.get<Object>("https://www.googleapis.com/youtube/v3/search?key=AIzaSyB3HrxFoUlaWqHX0jysW7TP0QQZG7GSQpY&order=relevance&part=snippet%20&type=video,id&" +
       "maxResults=20&q=" + searchText
     ).pipe(map((response: any) => response.items)).
       catch((err) => {
