@@ -1,5 +1,5 @@
 <!-- table titles -->
-<div class="datatable-wrapper" *ngIf="displayData && displayData.length > 0">
+<div class="datatable-wrapper" >
     <div class="table-headers">
         <div *ngFor="let header of headers" class="table-cell">
             <span (click)="sort(header)" (click)="selected=!selected;sort(header)">
